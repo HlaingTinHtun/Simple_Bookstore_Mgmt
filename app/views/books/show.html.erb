@@ -1,0 +1,24 @@
+<div id="books-show">
+  <h2><%= @book.title %></h2>
+  <div class="books-show-left">
+    <%= image_tag(@book.coverpath, :size => "200x250")%>
+  </div>
+  <div class="books-show-right">
+    <h3>Book Info:</h3>
+    <ul>
+      <li><strong>Categories: </strong> <%= @book.category.name %></li>
+      <li><strong>Author: </strong> <%= @book.author.first_name %> <%= @book.author.last_name %></li>
+      <li><strong>Pusblisher: </strong> <%= @book.publisher.name %></li>
+      <li><strong>Year: </strong> <%= @book.year %></li>
+      <li><strong>ISBN: </strong> <%= @book.isbn %></li>
+      <li><strong>Format: </strong> <%= @book.format %></li>
+      <li><strong>Pages: </strong> <%= @book.pages %></li>
+    </ul><br><br>
+  </div>
+  <div class="clearfix">
+    <h4>Excerpt</h4>
+    <p><%= @book.excerpt %></p>
+  </div>
+  <h3>Admin Functions</h3>
+  <%= link_to 'Edit', edit_book_path(@book.id)%> | <%= link_to 'Delete', book_path(@book), method: :delete, data: {confirm: 'Are you sure ?'} %>
+</div>
